@@ -1,0 +1,13 @@
+version: '2'
+services:
+  api:
+    build: .
+    command: npm start
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "4000:4000"
+    environment:
+      NODE_ENV: development
+      HTTP_PORT: 4000
+      MESSAGE_SERVICE_URL: #
