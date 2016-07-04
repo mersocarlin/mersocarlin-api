@@ -11,7 +11,7 @@ export default function (services) {
 async function createMessage (url, body) {
   const { data } = await axios({
     method: 'post',
-    url: `${url}/messages`,
+    url: `${url}/api/messages`,
     data: body,
   });
 
@@ -20,7 +20,7 @@ async function createMessage (url, body) {
 
 async function detailMessage (url, id) {
   const { data } = await axios({
-    url: `${url}/messages/${id}`,
+    url: `${url}/api/messages/${id}`,
   });
 
   return data;
