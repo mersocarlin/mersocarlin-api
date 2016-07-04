@@ -1,5 +1,5 @@
 import messageApiConsumer from '../../api-consumers/message';
-import validate from 'validate';
+import validate from './validate';
 
 
 export default async function create (services, data) {
