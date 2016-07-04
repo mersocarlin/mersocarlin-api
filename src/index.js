@@ -12,6 +12,7 @@ async function application () {
   app.use(restify.acceptParser(app.acceptable));
   app.use(restify.queryParser());
   app.use(restify.bodyParser());
+  app.use(restify.CORS());
 
   api(app);
 
