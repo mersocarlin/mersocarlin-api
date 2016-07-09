@@ -1,26 +1,20 @@
 import axios from 'axios';
 
 
-export default function (services) {
+export default function (services, keys) {
   return {
-    createMessage: createMessage.bind(this, services.message),
-    detailMessage: detailMessage.bind(this, services.message),
+    createMessage: createMessage.bind(this, services.message, keys.message),
   };
 }
 
-async function createMessage (url, body) {
+async function createMessage (url, key, body) {
   const { data } = await axios({
+    headers: {
+      'x-client-id': key,
+    },
     method: 'post',
     url: `${url}/api/messages`,
     data: body,
-  });
-
-  return data;
-}
-
-async function detailMessage (url, id) {
-  const { data } = await axios({
-    url: `${url}/api/messages/${id}`,
   });
 
   return data;

@@ -2,8 +2,8 @@ import messageApiConsumer from '../../api-consumers/message';
 import validate from './validate';
 
 
-export default async function create (services, data) {
-  const messageApi = messageApiConsumer(services);
+export default async function create (services, keys, data) {
+  const messageApi = messageApiConsumer(services, keys);
 
   const entity = {
     name: data.name,

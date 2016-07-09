@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/mersocarlin/mersocarlin-api.git"
   },
-  "author": "Hemerson Carlin <mersocarlin@mersocarlin.com>",
+  "author": "Hemerson Carlin <mersocarlin@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mersocarlin/mersocarlin-api/issues"
@@ -24,9 +24,12 @@
     "babel-polyfill": "^6.9.1",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-stage-0": "^6.5.0",
+    "body-parser": "^1.15.2",
     "eslint": "^1.10.2",
     "eslint-config-airbnb": "1.0.2",
     "eslint-plugin-react": "^4.1.0",
-    "restify": "^4.1.1"
+    "express": "^4.14.0",
+    "meaning-error": "^2.1.0",
+    "meaning-error-middleware": "^0.1.1"
   }
 }

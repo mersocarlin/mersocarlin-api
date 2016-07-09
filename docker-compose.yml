@@ -11,4 +11,5 @@ services:
     environment:
       NODE_ENV: development
       HTTP_PORT: 4000
+      MESSAGE_SERVICE_ACCESS_KEY: #
       MESSAGE_SERVICE_URL: #
