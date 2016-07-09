@@ -1,18 +1,14 @@
-import restify from 'restify';
+import express from 'express';
+import bodyParser from 'body-parser';
 
 import api from './api';
 
 
-async function application () {
-  const app = restify.createServer({
-    name: 'mersocarlin-api',
-    version: '1.0.0',
-  });
+async function application (config) {
+  const app = express();
 
-  app.use(restify.acceptParser(app.acceptable));
-  app.use(restify.queryParser());
-  app.use(restify.bodyParser());
-  app.use(restify.CORS());
+  app.set('config', config);
+  app.use(bodyParser.json());
 
   api(app);
 
@@ -21,10 +17,10 @@ async function application () {
 
 
 export const start = (config) => new Promise(async resolve => {
-  const app = await application();
-
-  app.listen(config.http.port, () => {
-    console.info(`${app.name} listening at ${app.url}`); // eslint-disable-line no-console
+  const app = await application(config);
+  app.listen(config.http.port, config.http.host, () => {
+    /* eslint-disable no-console */
+    console.info(`mersocarlin-api started at [ http://${config.http.host}:${config.http.port} ]`);
 
     resolve();
   });

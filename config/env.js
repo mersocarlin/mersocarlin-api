@@ -7,4 +7,7 @@ export const config = {
   services: {
     message: process.env.MESSAGE_SERVICE_URL,
   },
+  keys: {
+    message: process.env.MESSAGE_SERVICE_ACCESS_KEY || '',
+  },
 };
