@@ -12,9 +12,11 @@ export default (app) => {
 
   app.use(meaningError);
   app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
-    console.error(err.stack || err); // eslint-disable-line no-console
-
-    if (err) {
+    if (err && err.data) {
+      res
+        .status(err.data.status_code)
+        .send(err.data);
+    } else {
       res.sendStatus(500);
     }
   });
