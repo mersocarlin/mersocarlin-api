@@ -1,5 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import cors from 'cors';
+
 
 import api from './api';
 
@@ -9,6 +11,7 @@ async function application (config) {
 
   app.set('config', config);
   app.use(bodyParser.json());
+  app.use(cors());
 
   api(app);
 
