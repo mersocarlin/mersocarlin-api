@@ -6,7 +6,7 @@ import cors from 'cors';
 import api from './api';
 
 
-async function application (config) {
+export async function application (config) {
   const app = express();
 
   app.set('config', config);
