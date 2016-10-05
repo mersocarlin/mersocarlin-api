@@ -1,4 +1,4 @@
-import * as messageService from '../../services/message';
+import { default as messageService } from '../../services/message';
 
 
 export default {
