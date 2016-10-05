@@ -1,13 +1,15 @@
-export const config = {
-  environment: process.env.NODE_ENV || 'development',
+const { env } = process;
+
+export default {
+  environment: env.NODE_ENV || 'development',
   http: {
-    host: process.env.HTTP_HOST || '0.0.0.0',
-    port: process.env.HTTP_PORT || '3000',
+    host: env.HTTP_HOST || '0.0.0.0',
+    port: env.PORT || env.HTTP_PORT || '3000',
   },
   services: {
-    message: process.env.MESSAGE_SERVICE_URL,
+    message: env.MESSAGE_SERVICE_URL,
   },
   keys: {
-    message: process.env.MESSAGE_SERVICE_ACCESS_KEY || '',
+    message: env.MESSAGE_SERVICE_ACCESS_KEY,
   },
 };

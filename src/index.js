@@ -6,10 +6,10 @@ import cors from 'cors';
 import api from './api';
 
 
-async function application (config) {
+export async function application (config) {
   const app = express();
 
-  app.set('config', config);
+  app.set('config', config.env);
   app.use(bodyParser.json());
   app.use(cors());
 
@@ -21,9 +21,11 @@ async function application (config) {
 
 export const start = (config) => new Promise(async resolve => {
   const app = await application(config);
-  app.listen(config.http.port, config.http.host, () => {
+  const { env: { http: { host, port } } } = config;
+
+  app.listen(port, host, () => {
     /* eslint-disable no-console */
-    console.info(`mersocarlin-api started at [ http://${config.http.host}:${config.http.port} ]`);
+    console.info(`mersocarlin-api started at [ http://${host}:${port} ]`);
 
     resolve();
   });
